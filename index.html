@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>What Comic Should I Read</title>
+    <link rel="stylesheet" href="styles/styles.css">
+</head>
+<body>
+    <header>
+        <h1>Comics are Awesome!</h1>
+        <h2>But I'm new to comics, where do I start?</h2>
+        <a href="">Take the Quiz</a>
+    </header>
+    <form>
+        <div class="question">
+            <h3>What do you want from your reading experience?</h3>
+            <div class="option-container">
+                <label for="fiction">Real life, but you know, better than my real life</label>
+                <input type="radio" name="genre" id="fiction" value="fiction" required>
+            </div>
+            <div class="option-container">
+                <label for="fantasy">I want to escape real life to a land of magic!</label>
+                <input type="radio" name="genre" id="fantasy" value="fantasy" required>
+            </div>
+            <div class="option-container">
+                <label for="sci-fi">Escapism, but let's try science.</label>
+                <input type="radio" name="genre" id="sci-fi" value="sci-fi" required>
+            </div>
+        </div>
+        <div class="question">
+            <h3>How do you feel about romance?</h3>
+            <div class="option-container">
+                <label for="no">I prefer my characters to dwell in loneliness</label>
+                <input type="radio" name="romance" id="no" value="no" required>
+            </div>
+            <div class="option-container">
+                <label for="some">Just don't let it detract from the story</label>
+                <input type="radio" name="romance" id="some" value="some" required>
+            </div>
+            <div class="option-container">
+                <label for="yes">Give me some of that sweet sweet love</label>
+                <input type="radio" name="romance" id="yes" value="yes" required>
+            </div>
+            <div class="option-container">
+                <label for="all">Give me "The Notebook", but in a comic</label>
+                <input type="radio" name="romance" id="all" value="all" required>  
+            </div>
+        </div>
+        <div class="question">
+            <h3>How do you want to feel?</h3>
+            <div class="option-container">
+                <label for="cute">Like I'm being wrapped in a warm, fuzzy blanket</label>
+                <input type="radio" name="mood" id="cute" value="cute" required>
+            </div>
+            <div class="option-container">
+                <label for="funny">I want to at least be able to tweet that I lol'd, maybe even rolled on the floor laughing</label>
+                <input type="radio" name="mood" id="funny" value="funny" required>
+            </div>
+            <div class="option-container">
+                <label for="drama">Serious reading time is serious</label>
+                <input type="radio" name="mood" id="drama" value="drama" required>
+            </div>
+            <div class="option-container">
+                <label for="dark">Like the darkness is encroching on my soul</label>
+                <input type="radio" name="mood" id="dark" value="drama" required>
+            </div>
+        </div>
+        <div class="question">
+            <h3>Which emoji best describes you?</h3>
+            <div class="option-container">
+                <label for="spaceship">🚀</label>
+                <input type="radio" name="emoji" id="spaceship" value="spaceship" required>
+            </div>
+            <div class="option-container">
+                <label for="guitar">🎸</label>
+                <input type="radio" name="emoji" id="guitar" value="guitar" required>
+            </div>
+            <div class="option-container">
+                <label for="rainbow">🏳️‍🌈</label>
+                <input type="radio" name="emoji" id="rainbow" value="rainbow" required>
+            </div>
+            <div class="option-container">
+                <label for="sword">⚔️</label>
+                <input type="radio" name="emoji" id="sword" value="sword" required>
+            </div>
+        </div>
+        <div class="question">
+            <h3>What is your reading drink of choice?</h3>
+            <div class="option-container">
+                <label for="wine">A glass of fine wine</label>
+                <input type="radio" name="drink" id="wine" value="wine" required>
+            </div>
+            <div class="option-container">
+                <label for="beer">A flagon of ale</label>
+                <input type="radio" name="drink" id="beer" value="beer" required>
+            </div>
+            <div class="option-container">
+                <label for="soda">A cool bubbly soda</label>
+                <input type="radio" name="drink" id="soda" value="soda" required>
+            </div>
+            <div class="option-container">
+                <label for="coffee">Caffeinate me!</label>
+                <input type="radio" name="drink" id="coffee" value="coffee" required>
+            </div>
+        </div>
+        <div class="question">
+            <h3>Are you ok with raucous humour and/or adult content?</h3>
+            <div class="option-container">
+                <label for="adult">Who are we kidding, I'm a walking inappropriate joke</label>
+                <input type="radio" name="rating" id="adult" value="adult" required>
+            </div>
+            <div class="option-container">
+                <label for="teen">Let's keep it a little classy</label>
+                <input type="radio" name="rating" id="teen" value="teen" required>
+            </div>
+            <div class="option-container">
+                <label for="allAges">Make it squeaky clean</label>
+                <input type="radio" name="rating" id="allAges" value="allAges" required>
+            </div>
+        </div>
+        <input type="submit" value="Get my results">
+    </form>
+    <div class="result-container"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.9.0/underscore.js"></script>
+    <script src="scripts/script.js"></script>
+</body>
+</html>

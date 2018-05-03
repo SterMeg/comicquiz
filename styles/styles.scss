@@ -1,0 +1,52 @@
+@import 'setup';
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-size: 1.6rem;
+}
+
+header {
+    height: 100vh;
+}
+
+form {
+    width: 60%;
+    margin: 0 auto;
+}
+
+
+h3 {
+    width: 100%;
+}
+
+label {
+    display: block;
+    padding: 20px;
+    background: grey;
+    border: 2px solid black;
+    box-shadow: 3px 3px black;
+    &:hover {
+        background: lightcoral;
+    }
+}
+
+input[type=radio] {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: -1;
+}
+
+.question {
+    display: flex;
+    flex-wrap: wrap;
+}
+.option-container {
+    // display: flex;
+  
+    margin: 20px;
+    position: relative;
+}
