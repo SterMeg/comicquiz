@@ -11,7 +11,7 @@
 <body>
     <header class='main-header quiz-start'>
          <!-- <a rel="nofollow" target="_blank" href="https://www.vecteezy.com">Free Vectors via Vecteezy!</a> -->
-        <div class="main-header__container">
+        <div class="main-header__container wrapper">
             <svg class="quote-1" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                 viewBox="0 0 24 30" style="enable-background:new 0 0 24 30;" xml:space="preserve">
                 <title>message, chat, bubble</title>
@@ -32,13 +32,13 @@
             <h2 class = 'heading-2'>New to comics??</h2>
             <h1 class = 'heading-1'>Comics</br> are</br> Awesome!</h1>
             <h3 class = 'main-header__heading-3'>Find your match!</h3>
-            <a href="" class='main-header__button button'>Take the Quiz</a>
+            <a href="#question1" class='main-header__button button'>Take the Quiz</a>
         </div>
     </header>
     
     <form>
         <section>
-        <div class="wrapper">
+        <div class="wrapper" id = "question1">
             <div class="question">   
                 <h3 class="heading-3">What do you want from your reading experience?</h3>
                 <div class="answer-container">
@@ -92,7 +92,7 @@
                 <input type="radio" name="mood" id="cute" value="cute" required>
                 <label for="cute">Like I'm being wrapped in a warm, fuzzy blanket</label>
             </div>
-            <div class="option-container hidden">
+            <div class="option-container">
                 <input type="radio" name="mood" id="funny" value="funny" required>
                 <label for="funny">I want to at least be able to tweet that I lol'd, maybe even rolled on the floor laughing</label>
             </div>
@@ -136,7 +136,8 @@
 <section>
     <div class="wrapper">
         <div class="question question5">
-            <h3>What is your reading drink of choice?</h3>
+            <h3 class = "heading-3">What is your reading drink of choice?</h3>
+            <div class="answer-container">
             <div class="option-container">
                 <input type="radio" name="drink" id="wine" value="wine" required>
                 <label for="wine">A glass of fine wine</label>
@@ -153,11 +154,15 @@
                 <input type="radio" name="drink" id="coffee" value="coffee" required>
                 <label for="coffee">Caffeinate me!</label>
             </div>
+            </div>
         </div>
         </div>
     </section>
+    <section class = "dark">
+        <div class="wrapper">
         <div class="question question6">
             <h3 class = "heading-3">How do you feel about raucous humour and/or adult content?</h3>
+            <div class="answer-container">
             <div class="option-container">
                 <input type="radio" name="rating" id="adult" value="adult" required>
                 <label for="adult">Who are we kidding, I'm a walking inappropriate joke</label>
@@ -169,9 +174,12 @@
             <div class="option-container">
                 <input type="radio" name="rating" id="allAges" value="allAges" required>
                 <label for="allAges">Make it squeaky clean</label>
-            </div>    
+            </div>  
+            </div>
         </div>
         <input type="submit" value="Get my results">
+        </section>
+        </div>
     </form>
     <div class="result-container"></div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>

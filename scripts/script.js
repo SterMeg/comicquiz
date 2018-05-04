@@ -121,11 +121,6 @@ const comics = [
 
 
 
-// Get random title in case of tie
-const getRandomTitle = function (array) {
-    const randomTitle = Math.floor(Math.random() * array.length);
-    return array[randomTitle];
-}
 //get checked value from each question and assign it to variable
 $(function () {
     // let page = ['.quiz-start', '.question1', '.question2', '.question3', '.question4', '.question5', '.question6', '.result-container'];
@@ -228,30 +223,61 @@ $(function () {
         //Get number of times each title occurs
         const resultsShortlist = _.countBy(answerList, 'title');
         
-        //iterate over resultsShortlist array and get title with highest value
-        const finalResult = _.max(Object.keys(resultsShortlist), function (title) { 
-            return resultsShortlist[title];
+        console.log(resultsShortlist);
+        
+        //create array from objects shortlist & iterate over and get title with highest value
+        const resultsArray = Object.entries(resultsShortlist);
+
+            const sortResults = resultsArray.sort((arr1, arr2) => {
+                return arr1[1] < arr2[1];
+            }); 
+
+            console.log(sortResults);
+
+        const topScore = sortResults[0];
+
+
+        //check to see if any other scores match this score, if so, push them to array
+        const tieArray = [];
+
+        const tie = sortResults.forEach(element => {
+            console.log(element);
+            if (element[1] === topScore[1]) {
+                tieArray.push(element);
+                
+                console.log(sortResults[element]);
+            }
+            return tieArray;
         });
+
+        //Check for a tie. If there is a tie, run getRandomTitleFunction, else just return title
+        function finalResult () {
+            if (tieArray.length > 1) {
+                return getRandomTitle(tieArray);
+            } else {
+                return tieArray[0][0];
+            } 
+        }   
+
+        // Get random title in case of tie
+        const getRandomTitle = function (array) {
+            console.log('Im being called')
+            const randomTitle = Math.floor(Math.random() * array.length);
+            return array[randomTitle][0];
+        }
+
+
         // Return the result as the comic object for appending data
         const answerObject = comics
             .filter((comic) => {
-            return comic.title === finalResult;
+                return comic.title === finalResult();
             })
             .map((comic) => {
                 return comic;
             }); 
-        // });
-        
-        console.log(answerObject);
-        $('.result-container').append(`<h2>You should read ${answerObject[0].title}!</h2><h3>by ${answerObject[0].author}</h3><p>${answerObject[0].description}</p>`);
-        
-        // finalResult.push(resultsShortlist);
 
-        console.log(resultsShortlist);
-        console.log(finalResult);
-        
-        
-    //   x
+        //Put results on to page    
+        $('.result-container').append(`<h2>You should read ${answerObject[0].title}!</h2><h3>by ${answerObject[0].author}</h3><p>${answerObject[0].description}</p>`); 
 
     }); //Form submit end
 }); //Document Ready End
