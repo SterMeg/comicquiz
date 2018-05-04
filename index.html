@@ -5,120 +5,171 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>What Comic Should I Read</title>
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans|Pangolin" rel="stylesheet">
     <link rel="stylesheet" href="styles/styles.css">
 </head>
 <body>
-    <header>
-        <h1>Comics are Awesome!</h1>
-        <h2>But I'm new to comics, where do I start?</h2>
-        <a href="">Take the Quiz</a>
+    <header class='main-header quiz-start'>
+         <!-- <a rel="nofollow" target="_blank" href="https://www.vecteezy.com">Free Vectors via Vecteezy!</a> -->
+        <div class="main-header__container">
+            <svg class="quote-1" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                viewBox="0 0 24 30" style="enable-background:new 0 0 24 30;" xml:space="preserve">
+                <title>message, chat, bubble</title>
+                <g>
+                <path d="M8.5,22c-0.1,0-0.1,0-0.2,0C8.1,21.9,8,21.7,8,21.5v-3c-4.8-1.3-8-4.6-8-8.5c0-5,5.4-9,12-9s12,4,12,9c0,4.8-5,8.7-11.3,9
+            	l-3.9,2.9C8.7,22,8.6,22,8.5,22z M12,2C5.9,2,1,5.6,1,10c0,3.5,3.1,6.5,7.6,7.6c0.2,0,0.4,0.3,0.4,0.5v2.4l3.2-2.4
+                c0.1-0.1,0.2-0.1,0.3-0.1c5.9-0.2,10.5-3.7,10.5-8S18.1,2,12,2z" />
+                <text x="4" y="9">Where do I start?</text>
+                </g>
+            </svg>
+            <svg class = "quote-2" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                viewBox="0 0 24 30" style="enable-background:new 0 0 24 30;" xml:space="preserve">
+                <title>message, chat, bubble</title>
+                <path d="M8.5,22c-0.1,0-0.1,0-0.2,0C8.1,21.9,8,21.7,8,21.5v-3c-4.8-1.3-8-4.6-8-8.5c0-5,5.4-9,12-9s12,4,12,9c0,4.8-5,8.7-11.3,9
+                        	l-3.9,2.9C8.7,22,8.6,22,8.5,22z M12,2C5.9,2,1,5.6,1,10c0,3.5,3.1,6.5,7.6,7.6c0.2,0,0.4,0.3,0.4,0.5v2.4l3.2-2.4
+                            c0.1-0.1,0.2-0.1,0.3-0.1c5.9-0.2,10.5-3.7,10.5-8S18.1,2,12,2z" />
+            </svg>
+            <h2 class = 'heading-2'>New to comics??</h2>
+            <h1 class = 'heading-1'>Comics</br> are</br> Awesome!</h1>
+            <h3 class = 'main-header__heading-3'>Find your match!</h3>
+            <a href="" class='main-header__button button'>Take the Quiz</a>
+        </div>
     </header>
+    
     <form>
-        <div class="question">
-            <h3>What do you want from your reading experience?</h3>
-            <div class="option-container">
-                <label for="fiction">Real life, but you know, better than my real life</label>
-                <input type="radio" name="genre" id="fiction" value="fiction" required>
-            </div>
-            <div class="option-container">
-                <label for="fantasy">I want to escape real life to a land of magic!</label>
-                <input type="radio" name="genre" id="fantasy" value="fantasy" required>
-            </div>
-            <div class="option-container">
-                <label for="sci-fi">Escapism, but let's try science.</label>
-                <input type="radio" name="genre" id="sci-fi" value="sci-fi" required>
+        <section>
+        <div class="wrapper">
+            <div class="question">   
+                <h3 class="heading-3">What do you want from your reading experience?</h3>
+                <div class="answer-container">
+                <div class="option-container">
+                    <input type="radio" name="genre" id="fiction" value="fiction" required>
+                    <label for="fiction">Real life, but you know, better than my real life</label>
+                </div>
+                <div class="option-container">
+                    <input type="radio" name="genre" id="fantasy" value="fantasy" required>
+                    <label for="fantasy">I want to escape real life to a land of magic!</label>
+                </div>
+                <div class="option-container">
+                    <input type="radio" name="genre" id="sci-fi" value="sci-fi" required>
+                    <label for="sci-fi">Escapism, but let's try science.</label>
+                </div>
+                </div>
             </div>
         </div>
-        <div class="question">
-            <h3>How do you feel about romance?</h3>
+    </section>
+    <section class="dark">
+        <div class="wrapper">
+            <div class="question question2">
+            <h3 class = "heading-3">How do you feel about romance?</h3>
+            <div class="answer-container">
             <div class="option-container">
-                <label for="no">I prefer my characters to dwell in loneliness</label>
                 <input type="radio" name="romance" id="no" value="no" required>
+                <label for="no">I prefer my characters to dwell in loneliness</label>
             </div>
             <div class="option-container">
-                <label for="some">Just don't let it detract from the story</label>
                 <input type="radio" name="romance" id="some" value="some" required>
+                <label for="some">Just don't let it detract from the story</label>
             </div>
             <div class="option-container">
-                <label for="yes">Give me some of that sweet sweet love</label>
                 <input type="radio" name="romance" id="yes" value="yes" required>
+                <label for="yes">Give me some of that sweet sweet love</label>
             </div>
             <div class="option-container">
-                <label for="all">Give me "The Notebook", but in a comic</label>
                 <input type="radio" name="romance" id="all" value="all" required>  
+                <label for="all">Give me "The Notebook", but in a comic</label>
+            </div>
+            </div>
             </div>
         </div>
-        <div class="question">
-            <h3>How do you want to feel?</h3>
+    </section>
+    <section>
+        <div class="wrapper">
+        <div class="question question3">
+            <h3 class = "heading-3">How do you want to feel?</h3>
+            <div class="answer-container">
             <div class="option-container">
-                <label for="cute">Like I'm being wrapped in a warm, fuzzy blanket</label>
                 <input type="radio" name="mood" id="cute" value="cute" required>
+                <label for="cute">Like I'm being wrapped in a warm, fuzzy blanket</label>
             </div>
-            <div class="option-container">
-                <label for="funny">I want to at least be able to tweet that I lol'd, maybe even rolled on the floor laughing</label>
+            <div class="option-container hidden">
                 <input type="radio" name="mood" id="funny" value="funny" required>
+                <label for="funny">I want to at least be able to tweet that I lol'd, maybe even rolled on the floor laughing</label>
             </div>
             <div class="option-container">
-                <label for="drama">Serious reading time is serious</label>
                 <input type="radio" name="mood" id="drama" value="drama" required>
+                <label for="drama">Serious reading time is serious</label>
             </div>
             <div class="option-container">
-                <label for="dark">Like the darkness is encroching on my soul</label>
                 <input type="radio" name="mood" id="dark" value="drama" required>
+                <label for="dark">Like the darkness is encroching on my soul</label>
+            </div>
             </div>
         </div>
-        <div class="question">
-            <h3>Which emoji best describes you?</h3>
+        </div>
+</section>
+<section class="dark">
+    <div class="wrapper">
+        <div class="question question4">
+            <h3 class = "heading-3">Which emoji best describes you?</h3>
+            <div class="answer-container">
             <div class="option-container">
-                <label for="spaceship">🚀</label>
                 <input type="radio" name="emoji" id="spaceship" value="spaceship" required>
+                <label for="spaceship">🚀</label>
             </div>
             <div class="option-container">
-                <label for="guitar">🎸</label>
                 <input type="radio" name="emoji" id="guitar" value="guitar" required>
+                <label for="guitar">🎸</label>
             </div>
             <div class="option-container">
-                <label for="rainbow">🏳️‍🌈</label>
                 <input type="radio" name="emoji" id="rainbow" value="rainbow" required>
+                <label for="rainbow">🏳️‍🌈</label>
             </div>
             <div class="option-container">
-                <label for="sword">⚔️</label>
                 <input type="radio" name="emoji" id="sword" value="sword" required>
+                <label for="sword">⚔️</label>
+            </div>
             </div>
         </div>
-        <div class="question">
+        </div>
+</section>
+<section>
+    <div class="wrapper">
+        <div class="question question5">
             <h3>What is your reading drink of choice?</h3>
             <div class="option-container">
-                <label for="wine">A glass of fine wine</label>
                 <input type="radio" name="drink" id="wine" value="wine" required>
+                <label for="wine">A glass of fine wine</label>
             </div>
             <div class="option-container">
-                <label for="beer">A flagon of ale</label>
                 <input type="radio" name="drink" id="beer" value="beer" required>
+                <label for="beer">A flagon of ale</label>
             </div>
             <div class="option-container">
-                <label for="soda">A cool bubbly soda</label>
                 <input type="radio" name="drink" id="soda" value="soda" required>
+                <label for="soda">A cool bubbly soda</label>
             </div>
             <div class="option-container">
-                <label for="coffee">Caffeinate me!</label>
                 <input type="radio" name="drink" id="coffee" value="coffee" required>
+                <label for="coffee">Caffeinate me!</label>
             </div>
         </div>
-        <div class="question">
-            <h3>Are you ok with raucous humour and/or adult content?</h3>
+        </div>
+    </section>
+        <div class="question question6">
+            <h3 class = "heading-3">How do you feel about raucous humour and/or adult content?</h3>
             <div class="option-container">
-                <label for="adult">Who are we kidding, I'm a walking inappropriate joke</label>
                 <input type="radio" name="rating" id="adult" value="adult" required>
+                <label for="adult">Who are we kidding, I'm a walking inappropriate joke</label>
             </div>
             <div class="option-container">
-                <label for="teen">Let's keep it a little classy</label>
                 <input type="radio" name="rating" id="teen" value="teen" required>
+                <label for="teen">Let's keep it a little classy</label>
             </div>
             <div class="option-container">
-                <label for="allAges">Make it squeaky clean</label>
                 <input type="radio" name="rating" id="allAges" value="allAges" required>
-            </div>
+                <label for="allAges">Make it squeaky clean</label>
+            </div>    
         </div>
         <input type="submit" value="Get my results">
     </form>
@@ -126,5 +177,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.9.0/underscore.js"></script>
     <script src="scripts/script.js"></script>
+    </div> <!-- /.wrapper -->
 </body>
 </html>
+
+<!-- Created by Deemak Daksina -->

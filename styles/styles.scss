@@ -1,4 +1,5 @@
 @import 'setup';
+@import 'utils';
 
 html {
     font-size: 62.5%;
@@ -6,44 +7,200 @@ html {
 
 body {
     font-size: 1.6rem;
+    font-family: 'PT Sans', sans-serif;
+    line-height: 1.6;
+    letter-spacing: 1.5px;
+    
 }
 
-header {
-    height: 100vh;
+section {
+    background: #fff;
+    padding: 5vh 0;
 }
 
-form {
-    width: 60%;
+section.dark::before {
+        background: #b47eb3;
+        height: 5vh;
+        top: 0;
+        width: 100%;
+        transform: rotate(60deg);
+        position: absolute;
+    }
+
+.dark {
+    position: relative;
+    background: #b47eb3;
+    .heading-3 {
+        grid-column: span 2 / -2 ;
+        text-align: right;
+    }
+    .answer-container {
+        grid-column: 2 / span 2;
+    }
+    
+}
+
+.wrapper {
+    max-width: 1170px;
     margin: 0 auto;
+    padding-top: 5vh;
+}
+
+.main-header {
+    height: 100vh; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url(../assets/BubbleWrap_03.svg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    
+    text-shadow: 1px 1px 2px $black;
+    h2,
+    h3 {
+        color: $black;
+        text-shadow: none;
+    }
+    &__container {
+        background: #b47eb3;
+        width: 80%;
+        height: 80vh;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 3px 3px 5px $black;
+    }
+    &__button {
+        background: $secondary;
+        color: $white;
+        text-decoration: none;
+        text-shadow: 1px 1px 1px $black;
+       &:hover,
+       &:focus {
+           background: darken($secondary, 10);
+       }
+    }
 }
 
 
-h3 {
-    width: 100%;
+.heading-1 {
+    font-family: 'Pangolin', cursive;
+    font-size: 8rem;
+    color: $white;
+    line-height: 1;
+    margin: 0;
+    text-align: center;
+}
+
+.heading-3 {
+    background: #16bac5;
+    border: 1px solid $black;
+    font-family: 'Pangolin', cursive;
+    letter-spacing: 2px;
+    font-size: 3rem;
+    grid-column: 2 / span 2;
+    grid-row: 2 / span 2;
+    padding: 50px 30px;
+}
+
+.answer-container {
+    border: 1px solid $black;
+    grid-column: 3 / span 2;
+    grid-row: 3 / span 3;
+    background: $white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.button {
+    display: block;
+    padding: 20px;
+    border: 2px solid $black;
+    box-shadow: 3px 3px $black;
+    transition: box-shadow 2s ease;
+    &:hover {
+        // background: #8af3ff;
+    }
 }
 
 label {
     display: block;
     padding: 20px;
-    background: grey;
-    border: 2px solid black;
-    box-shadow: 3px 3px black;
-    &:hover {
-        background: lightcoral;
+    background: #fff;
+    border: 2px solid $black;
+    box-shadow: 3px 3px $black;
+    transition: background 0.5s linear;
+    &:hover,
+    &:focus {
+        background: #7acdbe;
     }
 }
+
 
 input[type=radio] {
     position: absolute;
     left: 50%;
     top: 50%;
     z-index: -1;
+    &:checked ~ label {
+        box-shadow: none;
+        background: #7acdbe;
+    }
 }
 
-.question {
-    display: flex;
-    flex-wrap: wrap;
+svg {
+    fill: $black;
+    position: absolute;
+    width: 20%;
 }
+
+form {
+ 
+}
+
+.quote-1 {
+   
+    right: 8%;
+    top: 8%;
+    transform: rotate(15deg);
+    text {
+        font-family: 'PT Sans', sans-serif; 
+        font-size : 0.25rem;
+        fill: $white;
+        transform: rotate(10deg);
+    }
+}
+
+.quote-2 {
+    transform: scaleX(-1) rotate(15deg);
+    left: 8%;
+    top: 40%;
+}
+
+// .question {
+//     @extend .main-header__container;
+//     background: $white;
+//     align-items: center;
+//     flex-direction: row;
+//     justify-content: space-around;
+// }
+
+.question {
+    display: grid;
+    height: 90vh;
+    grid-template-columns: 20px repeat(3, 1fr) 20px;
+    grid-gap: 20px;
+    grid-template-rows: 0px repeat(4, 1fr) 0px;
+}
+
+.hidden {
+    display: none;
+}
+
 .option-container {
     // display: flex;
   

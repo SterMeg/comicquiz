@@ -6,7 +6,8 @@ const comics = [
       mood: 'drama',
       emoji: 'spaceship',
       drink: 'beer',
-      rating: 'adult'
+      rating: 'adult',
+      author: 'Brian K. Vaughn and Fiona Staples'
     },
     
     {   title: 'Rat Queens',
@@ -15,7 +16,8 @@ const comics = [
         mood: 'funny',
         emoji: 'sword',
         drink: 'beer',
-        rating: 'adult'
+        rating: 'adult',
+        author: 'Kurtis J Wiebe and Roc Upchurch'
     },
 
     {     
@@ -25,7 +27,8 @@ const comics = [
         mood: 'funny',
         emoji: 'rainbow',
         drink: 'coffee',
-        rating: 'teen'
+        rating: 'teen',
+        author: 'John Allison, Lissa Treiman, and Whitney Cogar'
       },
 
       {
@@ -35,7 +38,8 @@ const comics = [
           mood: 'dark',
           emoji: 'sword',
           drink: 'wine',
-          rating: 'teen'
+          rating: 'teen',
+          author: 'Marjorie Liu and Sana Takeda'
       },
 
      {
@@ -45,7 +49,8 @@ const comics = [
           mood: 'drama',
           emoji: 'spaceship',
           drink: 'wine',
-          rating: 'teen'
+          rating: 'teen',
+          author: 'Jeff Lemire and  Dustin Nguyen'
       },
 
      {
@@ -55,7 +60,8 @@ const comics = [
           mood: 'cute',
           emoji: 'rainbow',
           drink: 'soda',
-          rating: 'allAges'
+          rating: 'allAges',
+          author: 'James Tynion IV and Rian Syngh'
       },
       {
           title: 'Joyride',
@@ -64,7 +70,8 @@ const comics = [
           mood: 'cute',
           emoji: 'rainbow',
           drink: 'coffee',
-          rating: 'teen'
+          rating: 'teen',
+          author: 'Jackson Lanzing, Collin Kelly, and Marcus To'
       },
       {
           title: 'Bingo Love',
@@ -73,37 +80,43 @@ const comics = [
           mood: 'cute',
           emoji: 'rainbow',
           drink: 'soda',
-          rating: 'allAges'
+          rating: 'allAges',
+          author: 'Tee Franklin, Jenn St-Onge, and Joy San'
       },
       {
-          title: 'Kim & Kim',
-          genre: 'sci-fi',
-          romance: 'no',
-          mood: 'funny',
-          emoji: 'guitar',
-          drink: 'beer',
-          rating: 'adult'
+        title: 'Kim & Kim',
+        genre: 'sci-fi',
+        romance: 'no',
+        mood: 'funny',
+        emoji: 'guitar',
+        drink: 'beer',
+        rating: 'adult',
+        author: 'Magdalene Visaggio, Eva Cabrera, and Claudia Aguirre',
+        description: 'A hard-rocking, high-flying space adventure about two bounty hunters just trying to make it in the universe!'
       },
-      {
-          title: 'Lady Killer',
-          genre: 'fiction',
-          romance: 'no',
-          mood: 'dark',
-          emoji: 'sword',
-          drink: 'wine',
-          rating: 'adult'
-      },
-      {
-          title: 'Paper Girls',
-          genre: 'sci-fi',
-          romance: 'no',
-          mood: 'drama',
-          emoji: 'guitar',
-          drink: 'soda',
-          rating: 'teen'
-      }
 
-         
+      {
+        title: 'Lady Killer',
+        genre: 'fiction',
+        romance: 'no',
+        mood: 'dark',
+        emoji: 'sword',
+        drink: 'wine',
+        rating: 'adult',
+        author: 'Joelle Jones and Jamie S. Rich',
+        description: `A 50's housewife who is also an assassin? What could possibly go wrong?`
+      },
+
+      {
+        title: 'Paper Girls',
+        genre: 'sci-fi',
+        romance: 'no',
+        mood: 'drama',
+        emoji: 'guitar',
+        drink: 'soda',
+        rating: 'teen',
+        author: 'Brian K. Vaughan and Cliff Chiang'
+      }        
 ];
 
 
@@ -115,11 +128,25 @@ const getRandomTitle = function (array) {
 }
 //get checked value from each question and assign it to variable
 $(function () {
+    // let page = ['.quiz-start', '.question1', '.question2', '.question3', '.question4', '.question5', '.question6', '.result-container'];
+    // let currentPage = 0;
+
+    // function nextPage() {
+    //     $(page[currentPage]).toggleClass('hidden');
+    //     currentPage = currentPage + 1;
+    //     $(page[currentPage]).toggleClass('hidden');
+    // }
+
+    // $('.button').on('click', function (e) {
+    //     e.preventDefault();
+    //     nextPage();
+    // });
 
     $('form').on('submit', function (e) {
         //prevent default action on form submit
         e.preventDefault();
 
+        
         //Gets answers from each set of question and assigns to variable
         const genreAnswer = $('input[name=genre]:checked').val();
         const romanceAnswer = $('input[name=romance]:checked').val();
@@ -205,22 +232,25 @@ $(function () {
         const finalResult = _.max(Object.keys(resultsShortlist), function (title) { 
             return resultsShortlist[title];
         });
-
         // Return the result as the comic object for appending data
-        const answerObject = comics.map((comic) => {
-            if comic.title === finalResult {
+        const answerObject = comics
+            .filter((comic) => {
+            return comic.title === finalResult;
+            })
+            .map((comic) => {
                 return comic;
-            }
-        });
-
+            }); 
+        // });
+        
         console.log(answerObject);
-
+        $('.result-container').append(`<h2>You should read ${answerObject[0].title}!</h2><h3>by ${answerObject[0].author}</h3><p>${answerObject[0].description}</p>`);
         
         // finalResult.push(resultsShortlist);
+
         console.log(resultsShortlist);
         console.log(finalResult);
         
-        $('.result-container').append(`Your result is ${answerObject.title} by `)
+        
     //   x
 
     }); //Form submit end
