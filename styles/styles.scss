@@ -20,14 +20,18 @@ section {
 
 img {
     max-width: 100%;
+    display: block;
 }
 
 .dark {
     background: $white;
     .heading-3 {
         grid-column: span 2 / -1 ;
-        text-align: right;           
+        text-align: right; 
+        @media (max-width: 709px) {
+            text-align: center;          
         }
+    }
     .answer-container {
         grid-column: 1 / span 2;  
     }    
@@ -36,16 +40,19 @@ img {
 .wrapper {
     max-width: 1170px;
     margin: 0 auto;
+    display: flex;
+    align-items: center;
+    min-height: 100vh;
     @media (max-width: 1210px) {
-        padding: 0 20px;
+        padding: 0 20px;    
     }
 }
 
 .main-header {
-    min-height: 100vh; 
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    // min-height: 100vh; 
+    // display: flex;
+    // justify-content: center;
+    // align-items: center;
     background: url(../assets/BubbleWrap_03.svg);
     background-size: cover;
     background-repeat: no-repeat;   
@@ -83,6 +90,9 @@ img {
     line-height: 1;
     margin: 0;
     text-align: center;
+     @media (max-width: 480px) {
+        font-size: 5rem;
+    }
 }
 
 .heading-3 {
@@ -97,6 +107,7 @@ img {
     padding: 50px 30px;
     @media (max-width: 709px) {
         grid-row: 1;
+        text-align: center;          
     }
 }
 
@@ -122,9 +133,6 @@ img {
     border: 2px solid $black;
     box-shadow: 3px 3px $black;
     transition: box-shadow 2s ease;
-    &:hover {
-        // background: #8af3ff;
-    }
 }
 
 label {
@@ -158,12 +166,14 @@ input[type=radio] {
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 20px;
     grid-template-rows: repeat(4, 1fr);
+    width: 100%;
     @media (max-width: 709px) {
         grid-template-rows: repeat(3, 1fr);
     }
     @media (max-width: 480px) {
         display: flex;
         flex-direction: column;
+        justify-content: center;
     }
 }
 
@@ -180,23 +190,46 @@ input[type=radio] {
 
 .result-container {
     @extend .main-header;
-    height: 100vh;
+    min-height: 100vh;
+    display: flex;
     .wrapper {
-        width: 60%;
+        min-height: initial;
     }
     &__inner {
         @extend .main-header__container;
+        flex-basis: 900px;
+        display: block;
+    }
+    .data-container {
+        display: flex;
         flex-direction: row;
-        min-height: 80vh;
+        @media (max-width: 709px) {
+        flex-direction: column;
+        }
     }
     .image-container,
     .text-container {
         padding: 40px;
         flex-basis: 400px;
+        @media (max-width: 709px) {
+            flex-basis: auto;
+            padding: 20px 40px 0 40px;
+            h2 {
+                margin: 0;
+            }
+        img {
+           @media (max-width: 709px) {
+               margin: 20px auto;
+           }
+        }
+        }
     }
-    // .image-container {
-        
-    // }
+    .image-container {
+        flex-shrink: 0.5;
+        @media (max-width: 709px) {
+        // width: 60%;
+        }
+    }
 }
 
 
@@ -219,7 +252,7 @@ svg {
     width: 30%;  
     stroke: $black;
     stroke-width: 1px;
-    @media (max-width: 709px) {
+    @media (max-width: 480px) {
         display: none;
     }
 }
@@ -251,4 +284,11 @@ svg {
 .reset-button {
     @extend .main-header__button;
     margin: 0 auto;
+    @media (max-width: 709px) {
+        margin: 40px auto;
+    }
+}
+
+.tweet {
+    text-align: center;
 }

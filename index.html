@@ -11,15 +11,16 @@
 <body>
     <header class='main-header quiz-start'>
          <!-- <a rel="nofollow" target="_blank" href="https://www.vecteezy.com">Free Vectors via Vecteezy!</a> -->
-        <div class="main-header__container wrapper">
-            <h2 class = 'heading-2'>New to comics??</h2>
-            <h1 class = 'heading-1'>Comics</br> are</br> Awesome!</h1>
-            <h3 class = 'main-header__heading-3'>Find your match!</h3>
-            <a href="#question1" class='main-header__button button'>Take the Quiz</a>
+        <div class="wrapper">
+            <div class="main-header__container">
+                <h1 class = 'heading-1'>Comics</br> are</br> Awesome!</h1>
+                <h2 class = 'heading-2'>Find your match!</h2>
+                <a href="#question1" class='main-header__button button'>Take the Quiz</a>
+            </div>
         </div>
     </header>
     
-    <form>
+    <form id ="quiz">
         <section id = "question1">
         <div class="wrapper">
             <div class="question">   
@@ -103,7 +104,7 @@
             </div>
             <div class="option-container">
                 <input type="radio" name="mood" id="dark" value="drama">
-                <label for="dark">Like the darkness is encroching on my soul</label>
+                <label for="dark">Like the darkness is encroaching on my soul</label>
             </div>
             </div>
             <a href="#question4" class="next left">
@@ -213,13 +214,19 @@
     <section class="result-container" id="result">
         <div class="wrapper">
             <div class="result-container__inner">
-                <div class="image-container">
-                    <img class="image"></img>
-                </div>
-                <div class="info-container">
-                    <div class="text-container">
+                <div class="data-container">
+                    <div class="image-container">
+                        <img class="image"></img>
                     </div>
-                    <button class="button reset-button">Reset Quiz</button>
+                    <div class="info-container">
+                        <div class="text-container">
+                        </div>
+                        <button class="button reset-button">Reset Quiz</button>
+                    </div>
+                </div>
+                <div class="tweet">
+                    <a class="twitter-share-button" href="https://twitter.com/intent/tweet?text=I%20just%20found%20out%20which%20comic%20I%20should%20read!%20Take%20the%20quiz%20at&url=http://meghansterling.ca/comicquiz/&size=large">
+                        Tweet</a>
                 </div>
             </div>
         </div>

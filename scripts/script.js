@@ -178,11 +178,11 @@ $(function () {
     $('.result-container').hide();
     $('a').smoothScroll();
 
+
     $('form').on('submit', function (e) {
         //prevent default action on form submit
         e.preventDefault();
 
-        
         //Gets answers from each set of question and assigns to variable
         const genreAnswer = $('input[name=genre]:checked').val();
         const romanceAnswer = $('input[name=romance]:checked').val();
@@ -327,6 +327,24 @@ $(function () {
         $('.reset-button').on('click', function () {
             window.location.reload(true);
         });
+
+        //Tweet sharing
+        window.twttr = (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0],
+                t = window.twttr || {};
+            if (d.getElementById(id)) return t;
+            js = d.createElement(s);
+            js.id = id;
+            js.src = "https://platform.twitter.com/widgets.js";
+            fjs.parentNode.insertBefore(js, fjs);
+
+            t._e = [];
+            t.ready = function (f) {
+                t._e.push(f);
+            };
+
+            return t;
+        }(document, "script", "twitter-wjs"));
 
     }); //Form submit end
 }); //Document Ready End
