@@ -48,8 +48,7 @@ img {
     align-items: center;
     background: url(../assets/BubbleWrap_03.svg);
     background-size: cover;
-    background-repeat: no-repeat;
-    
+    background-repeat: no-repeat;   
     text-shadow: 1px 1px 2px $black;
     &__container {
         color: $black;
@@ -181,14 +180,23 @@ input[type=radio] {
 
 .result-container {
     @extend .main-header;
-    min-height: 100vh;
+    height: 100vh;
     .wrapper {
         width: 60%;
     }
     &__inner {
         @extend .main-header__container;
+        flex-direction: row;
         min-height: 80vh;
     }
+    .image-container,
+    .text-container {
+        padding: 40px;
+        flex-basis: 400px;
+    }
+    // .image-container {
+        
+    // }
 }
 
 
@@ -238,4 +246,9 @@ svg {
 
 .right  {
     grid-column: 3;
+}
+
+.reset-button {
+    @extend .main-header__button;
+    margin: 0 auto;
 }

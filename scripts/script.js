@@ -32,7 +32,7 @@ const comics = [
     },
 
     {     
-        title: "Giant Days", 
+        title: 'Giant Days', 
         genre: 'fiction',
         romance: 'some',
         mood: 'funny',
@@ -45,7 +45,7 @@ const comics = [
       },
 
       {
-          title: "Monstress",
+          title: 'Monstress',
           genre: 'fantasy',
           romance: 'no',
           mood: 'dark',
@@ -58,7 +58,7 @@ const comics = [
       },
 
      {
-          title: "Descender",
+          title: 'Descender',
           genre: 'sci-fi',
           romance: 'no',
           mood: 'drama',
@@ -71,7 +71,7 @@ const comics = [
       },
 
      {
-          title: "Backstagers",
+          title: 'Backstagers',
           genre: 'fantasy',
           romance: 'yes',
           mood: 'cute',
@@ -80,18 +80,18 @@ const comics = [
           rating: 'allAges',
           author: 'James Tynion IV and Rian Syngh',
           description: `Harry Potter meets high school theatre in this adorable fantasy. A new student joins his high school theatre's stage crew and discovers a whole magical backstage world.`,
-          image: 'assets/backstagers.jpeg'
+          image: 'assets/backstagers.jpg'
       },
       {
           title: 'Joyride',
-          genre: 'sci-fi',
-          romance: 'all',
+          genre: 'epic',
+          romance: 'yes',
           mood: 'cute',
           emoji: 'rainbow',
           drink: 'coffee',
           rating: 'teen',
           author: 'Jackson Lanzing, Collin Kelly, and Marcus To',
-          description: `Alien life has been discovered among the stars, but earth has blocked itself off with a giant shield. Uma Akkolyte thinks this is a drag, so she steals a spaceship and goes to explore the stars.`,
+          description: `Alien life has been discovered among the stars, but earth has blocked itself off with a giant shield. Uma Akkolyte thinks this is a drag, so she steals a spaceship and goes to explore the universe.`,
           image: 'assets/joyride.jpg'
       },
       {
@@ -159,14 +159,15 @@ const comics = [
       },
       {
           title: 'Heathen',
-          genre: 'fantasy',
+          genre: 'epic',
           romance: 'no',
           mood: 'drama',
           emoji: 'rainbow',
+          drink: 'beer',
           rating: 'teen',
           author: 'Natasha Alterici',
           description: `A woman is forced to leave her village after it is discovered that she loves another woman. Instead of letting it get her down, she goes on an epic adventure to save a Valkyrie, smash the patriarchy, and take on Odin.`,
-          image: `assets/heathen.jpeg`
+          image: `assets/heathen.jpg`
       }      
 ];
 
@@ -273,37 +274,33 @@ $(function () {
             if (element[1] === topScore[1]) {
                 tieArray.push(element);
                 
-                console.log(sortResults[element]);
+                // console.log(sortResults);
             }
             return tieArray;
         });
-
-        //Check for a tie. If there is a tie, run getRandomTitleFunction, else just return title
-        function finalResult () {
-            if (tieArray.length > 1) {
-                return getRandomTitle(tieArray);
-            } else {
-                return tieArray[0][0];
-            } 
-        }   
-
+        console.log(tieArray);
+        
+       
         // Get random title in case of tie
         const getRandomTitle = function (array) {
             const randomTitle = Math.floor(Math.random() * array.length);
-            return array[randomTitle][0];
+            return array[randomTitle];
         }
+        
+           //run getRandomTitle function. If there is no tie, the function should just return the item in the array.
 
+        let finalResult = getRandomTitle(tieArray);
 
         // Return the result as the comic object for appending data
         const answerObject = comics
             .filter((comic) => {
-                return comic.title === finalResult();
+                return comic.title === finalResult[0];
             })
             .map((comic) => {
                 return comic;
             }); 
 
-        
+        console.log(answerObject);
 
         // display results page
         showResults();
@@ -321,12 +318,15 @@ $(function () {
             showResultsContent();
         }
 
-        //Put results on to page   
+        //Put results on page   
         function showResultsContent () {
             $('.image').attr('src', answerObject[0].image);
             $('.text-container').html(`<h2>You should read ${answerObject[0].title}!</h2><h3>by ${answerObject[0].author}</h3><p>${answerObject[0].description}</p>`); 
         }
         
+        $('.reset-button').on('click', function () {
+            window.location.reload(true);
+        });
 
     }); //Form submit end
 }); //Document Ready End
