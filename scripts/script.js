@@ -64,8 +64,10 @@ const comics = [
           mood: 'drama',
           emoji: 'spaceship',
           drink: 'wine',
-          rating: 'teen',
-          author: 'Jeff Lemire and  Dustin Nguyen'
+          rating: 'adult',
+          author: 'Jeff Lemire and  Dustin Nguyen',
+          description: `An android boy wakes up after years of being powered down to find that everyone from his home has gone, and robots are being hunted down after a robot attack on humanity.`,
+          image: 'assets/Descender_vol1.png'
       },
 
      {
@@ -77,7 +79,8 @@ const comics = [
           drink: 'soda',
           rating: 'allAges',
           author: 'James Tynion IV and Rian Syngh',
-          description: `Harry Potter meets high school theatre in this adorable fantasy. A new student joins his high school theatre's stage crew and discovers a whole magical backstage world.`
+          description: `Harry Potter meets high school theatre in this adorable fantasy. A new student joins his high school theatre's stage crew and discovers a whole magical backstage world.`,
+          image: 'assets/backstagers.jpeg'
       },
       {
           title: 'Joyride',
@@ -88,7 +91,8 @@ const comics = [
           drink: 'coffee',
           rating: 'teen',
           author: 'Jackson Lanzing, Collin Kelly, and Marcus To',
-          description: ``
+          description: `Alien life has been discovered among the stars, but earth has blocked itself off with a giant shield. Uma Akkolyte thinks this is a drag, so she steals a spaceship and goes to explore the stars.`,
+          image: 'assets/joyride.jpg'
       },
       {
           title: 'Bingo Love',
@@ -98,7 +102,9 @@ const comics = [
           emoji: 'rainbow',
           drink: 'soda',
           rating: 'allAges',
-          author: 'Tee Franklin, Jenn St-Onge, and Joy San'
+          author: 'Tee Franklin, Jenn St-Onge, and Joy San',
+          description: `Two girls fall in love in the 1960s, but their families force them apart. Then, nearly 50 years later, they reunite in the same bingo hall where they first met.`,
+          image: 'assets/BingoLove.png'
       },
       {
         title: 'Kim & Kim',
@@ -109,7 +115,8 @@ const comics = [
         drink: 'beer',
         rating: 'adult',
         author: 'Magdalene Visaggio, Eva Cabrera, and Claudia Aguirre',
-        description: 'A hard-rocking, high-flying space adventure about two bounty hunters just trying to make it in the universe!'
+        description: 'A hard-rocking, high-flying space adventure about two bounty hunters just trying to make it in the universe!',
+        image: 'assets/kimandkim_vol1.jpg'
       },
 
       {
@@ -121,7 +128,8 @@ const comics = [
         drink: 'wine',
         rating: 'adult',
         author: 'Joelle Jones and Jamie S. Rich',
-        description: `A 50's housewife who is also an assassin? What could possibly go wrong?`
+        description: `A seemingly picture-perfect 50's housewife who is also an assassin? What could possibly go wrong?`,
+        image: 'assets/lady-killer.jpg'
       },
 
       {
@@ -133,8 +141,33 @@ const comics = [
         drink: 'soda',
         rating: 'teen',
         author: 'Brian K. Vaughan and Cliff Chiang',
-        description: `It's like if "Stranger Things" was about paper delivery girls and had time travel!`
-      }        
+        description: `It's like if "Stranger Things" was about paper delivery girls and had time travel!`,
+        image: 'assets/PaperGirls_Vol1.png'
+      }, 
+
+      {
+          title: 'Mech Cadet Yu',
+          genre: 'sci-fi',
+          romance: 'no',
+          mood: 'drama',
+          emoji: 'spaceship',
+          drink: 'soda',
+          rating: 'allAges',
+          author: 'Grek Pak, Takeshi Miyazawa, Triona Farrell',
+          description: `Giant mechs help protect humanity from alien invasion, and students attend elite training in the hopes of getting a chance at being chosen to pilot one. But this year, one of the mechs doesn't choose a student, but a janitor's son instead.`,
+          image: 'assets/mech-cadet-yu_vol1.jpg'
+      },
+      {
+          title: 'Heathen',
+          genre: 'fantasy',
+          romance: 'no',
+          mood: 'drama',
+          emoji: 'rainbow',
+          rating: 'teen',
+          author: 'Natasha Alterici',
+          description: `A woman is forced to leave her village after it is discovered that she loves another woman. Instead of letting it get her down, she goes on an epic adventure to save a Valkyrie, smash the patriarchy, and take on Odin.`,
+          image: `assets/heathen.jpeg`
+      }      
 ];
 
 
