@@ -1,3 +1,10 @@
+//Future Goals
+    //Add more comics
+    //Question about favourite colours
+    //Animate down arrow on radio selection for desktop view
+    //Create logic so that if options other than mature are selected, those options are filtered out, but the rest of the questions are chosen by best match
+    //create more modular system of getting best comic result
+
 // Array of objects containing comic names and question categorizations
 const comics = [
     { title: 'Saga',
@@ -7,7 +14,9 @@ const comics = [
       emoji: 'spaceship',
       drink: 'beer',
       rating: 'adult',
-      author: 'Brian K. Vaughn and Fiona Staples'
+      author: 'Brian K. Vaughn and Fiona Staples',
+      description: `Basically the gateway drug to comics, Saga is like Romeo and Juliet in space if they lived and it was narrated by their kid.`,
+      image: 'assets/Saga_vol1.png'
     },
     
     {   title: 'Rat Queens',
@@ -17,7 +26,9 @@ const comics = [
         emoji: 'sword',
         drink: 'beer',
         rating: 'adult',
-        author: 'Kurtis J Wiebe and Roc Upchurch'
+        author: 'Kurtis J Wiebe and Roc Upchurch',
+        description: `Sass, sorcery, and shenanigans! Join this all-female band of hard-fighting, hard-partying adventurers-for-hire on their quest to make enough money to party even harder.`,
+        image: 'assets/rat-queens_vol1.jpg'
     },
 
     {     
@@ -28,7 +39,9 @@ const comics = [
         emoji: 'rainbow',
         drink: 'coffee',
         rating: 'teen',
-        author: 'John Allison, Lissa Treiman, and Whitney Cogar'
+        author: 'John Allison, Lissa Treiman, and Whitney Cogar',
+        description: `Heartwarming and hilarious, "Giant Days" follows a goth, a homeschooler, and a pre-med student who end up roommates in their first year at university.`,
+        image: 'assets/giant-days_vol1.jpg'
       },
 
       {
@@ -39,7 +52,9 @@ const comics = [
           emoji: 'sword',
           drink: 'wine',
           rating: 'teen',
-          author: 'Marjorie Liu and Sana Takeda'
+          author: 'Marjorie Liu and Sana Takeda',
+          description: `This darkly beautiful fantasy follows a former slave on her quest to understand her past. But in order to do so, she must also grapple with a voracious monster that lives inside her.`,
+          image: 'assets/Monstress_Vol1.png'
       },
 
      {
@@ -61,7 +76,8 @@ const comics = [
           emoji: 'rainbow',
           drink: 'soda',
           rating: 'allAges',
-          author: 'James Tynion IV and Rian Syngh'
+          author: 'James Tynion IV and Rian Syngh',
+          description: `Harry Potter meets high school theatre in this adorable fantasy. A new student joins his high school theatre's stage crew and discovers a whole magical backstage world.`
       },
       {
           title: 'Joyride',
@@ -71,7 +87,8 @@ const comics = [
           emoji: 'rainbow',
           drink: 'coffee',
           rating: 'teen',
-          author: 'Jackson Lanzing, Collin Kelly, and Marcus To'
+          author: 'Jackson Lanzing, Collin Kelly, and Marcus To',
+          description: ``
       },
       {
           title: 'Bingo Love',
@@ -115,7 +132,8 @@ const comics = [
         emoji: 'guitar',
         drink: 'soda',
         rating: 'teen',
-        author: 'Brian K. Vaughan and Cliff Chiang'
+        author: 'Brian K. Vaughan and Cliff Chiang',
+        description: `It's like if "Stranger Things" was about paper delivery girls and had time travel!`
       }        
 ];
 
@@ -123,19 +141,8 @@ const comics = [
 
 //get checked value from each question and assign it to variable
 $(function () {
-    // let page = ['.quiz-start', '.question1', '.question2', '.question3', '.question4', '.question5', '.question6', '.result-container'];
-    // let currentPage = 0;
-
-    // function nextPage() {
-    //     $(page[currentPage]).toggleClass('hidden');
-    //     currentPage = currentPage + 1;
-    //     $(page[currentPage]).toggleClass('hidden');
-    // }
-
-    // $('.button').on('click', function (e) {
-    //     e.preventDefault();
-    //     nextPage();
-    // });
+    $('.result-container').hide();
+    $('a').smoothScroll();
 
     $('form').on('submit', function (e) {
         //prevent default action on form submit
@@ -161,7 +168,6 @@ $(function () {
             return comic;
         });
 
-        console.log(genreList);
         //Returns array from selections that match romance
         const romanceList = comics
             .filter((comic) => {
@@ -170,8 +176,6 @@ $(function () {
             .map((comic) => {
                 return comic;
             }); 
-
-        console.log(romanceList);
 
         //Returns array from selections that match mood
         const moodList = comics
@@ -182,8 +186,6 @@ $(function () {
                 return comic;
             });
 
-        console.log(moodList); 
-            
         //Returns array from selections that match emoji
         const emojiList = comics
             .filter((comic) => {
@@ -192,7 +194,6 @@ $(function () {
             .map((comic) => {
                 return comic;
             });
-        console.log(emojiList);
 
         //Returns array from selections that match drink
         const drinkList = comics
@@ -202,7 +203,6 @@ $(function () {
             .map((comic) => {
                 return comic;
             });
-        console.log(drinkList);
 
         //Returns array from selections that match rating
         const ratingList = comics
@@ -212,18 +212,15 @@ $(function () {
             .map((comic) => {
                 return comic;
             });
-        console.log(ratingList);
         
         // Get title that is chosen most number of times
         //if tie occurs choose random title of tied titles
+
         // Concatanate returned arrays from each question to create list of possible answers
         const answerList = genreList.concat(romanceList, moodList, emojiList, drinkList, ratingList);
-        console.log(answerList);
         
         //Get number of times each title occurs
         const resultsShortlist = _.countBy(answerList, 'title');
-        
-        console.log(resultsShortlist);
         
         //create array from objects shortlist & iterate over and get title with highest value
         const resultsArray = Object.entries(resultsShortlist);
@@ -231,8 +228,6 @@ $(function () {
             const sortResults = resultsArray.sort((arr1, arr2) => {
                 return arr1[1] < arr2[1];
             }); 
-
-            console.log(sortResults);
 
         const topScore = sortResults[0];
 
@@ -261,7 +256,6 @@ $(function () {
 
         // Get random title in case of tie
         const getRandomTitle = function (array) {
-            console.log('Im being called')
             const randomTitle = Math.floor(Math.random() * array.length);
             return array[randomTitle][0];
         }
@@ -276,8 +270,30 @@ $(function () {
                 return comic;
             }); 
 
-        //Put results on to page    
-        $('.result-container').append(`<h2>You should read ${answerObject[0].title}!</h2><h3>by ${answerObject[0].author}</h3><p>${answerObject[0].description}</p>`); 
+        
+
+        // display results page
+        showResults();
+
+        function showResults () {
+            $('.result-container').fadeIn();
+            scrollDown();
+        }
+
+        // Scroll to page on display
+        function scrollDown () {
+            $('html, body').animate({
+                scrollTop: $("#result").offset().top
+            }, 500);
+            showResultsContent();
+        }
+
+        //Put results on to page   
+        function showResultsContent () {
+            $('.image').attr('src', answerObject[0].image);
+            $('.text-container').html(`<h2>You should read ${answerObject[0].title}!</h2><h3>by ${answerObject[0].author}</h3><p>${answerObject[0].description}</p>`); 
+        }
+        
 
     }); //Form submit end
 }); //Document Ready End

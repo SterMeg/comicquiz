@@ -5,30 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>What Comic Should I Read</title>
-    <link href="https://fonts.googleapis.com/css?family=PT+Sans|Pangolin" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato|Nunito" rel="stylesheet">
     <link rel="stylesheet" href="styles/styles.css">
 </head>
 <body>
     <header class='main-header quiz-start'>
          <!-- <a rel="nofollow" target="_blank" href="https://www.vecteezy.com">Free Vectors via Vecteezy!</a> -->
         <div class="main-header__container wrapper">
-            <svg class="quote-1" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                viewBox="0 0 24 30" style="enable-background:new 0 0 24 30;" xml:space="preserve">
-                <title>message, chat, bubble</title>
-                <g>
-                <path d="M8.5,22c-0.1,0-0.1,0-0.2,0C8.1,21.9,8,21.7,8,21.5v-3c-4.8-1.3-8-4.6-8-8.5c0-5,5.4-9,12-9s12,4,12,9c0,4.8-5,8.7-11.3,9
-            	l-3.9,2.9C8.7,22,8.6,22,8.5,22z M12,2C5.9,2,1,5.6,1,10c0,3.5,3.1,6.5,7.6,7.6c0.2,0,0.4,0.3,0.4,0.5v2.4l3.2-2.4
-                c0.1-0.1,0.2-0.1,0.3-0.1c5.9-0.2,10.5-3.7,10.5-8S18.1,2,12,2z" />
-                <text x="4" y="9">Where do I start?</text>
-                </g>
-            </svg>
-            <svg class = "quote-2" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                viewBox="0 0 24 30" style="enable-background:new 0 0 24 30;" xml:space="preserve">
-                <title>message, chat, bubble</title>
-                <path d="M8.5,22c-0.1,0-0.1,0-0.2,0C8.1,21.9,8,21.7,8,21.5v-3c-4.8-1.3-8-4.6-8-8.5c0-5,5.4-9,12-9s12,4,12,9c0,4.8-5,8.7-11.3,9
-                        	l-3.9,2.9C8.7,22,8.6,22,8.5,22z M12,2C5.9,2,1,5.6,1,10c0,3.5,3.1,6.5,7.6,7.6c0.2,0,0.4,0.3,0.4,0.5v2.4l3.2-2.4
-                            c0.1-0.1,0.2-0.1,0.3-0.1c5.9-0.2,10.5-3.7,10.5-8S18.1,2,12,2z" />
-            </svg>
             <h2 class = 'heading-2'>New to comics??</h2>
             <h1 class = 'heading-1'>Comics</br> are</br> Awesome!</h1>
             <h3 class = 'main-header__heading-3'>Find your match!</h3>
@@ -37,156 +20,207 @@
     </header>
     
     <form>
-        <section>
-        <div class="wrapper" id = "question1">
+        <section id = "question1">
+        <div class="wrapper">
             <div class="question">   
                 <h3 class="heading-3">What do you want from your reading experience?</h3>
                 <div class="answer-container">
                 <div class="option-container">
-                    <input type="radio" name="genre" id="fiction" value="fiction" required>
+                    <input type="radio" name="genre" id="fiction" value="fiction">
                     <label for="fiction">Real life, but you know, better than my real life</label>
                 </div>
                 <div class="option-container">
-                    <input type="radio" name="genre" id="fantasy" value="fantasy" required>
+                    <input type="radio" name="genre" id="fantasy" value="fantasy">
                     <label for="fantasy">I want to escape real life to a land of magic!</label>
                 </div>
                 <div class="option-container">
-                    <input type="radio" name="genre" id="sci-fi" value="sci-fi" required>
+                    <input type="radio" name="genre" id="sci-fi" value="sci-fi">
                     <label for="sci-fi">Escapism, but let's try science.</label>
                 </div>
                 </div>
+                <a href="#question2" class= "next left">
+                    <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                        viewBox="0 0 48 60" style="enable-background:new 0 0 48 60;" xml:space="preserve">
+                        <path d="M38.7,22.2h-5.5c-0.8,0-1.5-0.5-1.7-1.3c-2-6.2-7.9-18.3-22.8-20.5C8,0.4,7.5,1.2,8,1.8c2.5,3.3,8.3,11.4,8.5,18.6
+                        c0,1-0.8,1.8-1.8,1.8H10c-1.1,0-1.8,0.9-1.3,1.7L23,46.8c0.6,1,2.1,1,2.7,0l14.4-22.9C40.5,23.1,39.8,22.2,38.7,22.2z" />
+                    </svg>
+                </a>
             </div>
         </div>
     </section>
-    <section class="dark">
+    <section class="dark" id="question2">
         <div class="wrapper">
             <div class="question question2">
             <h3 class = "heading-3">How do you feel about romance?</h3>
             <div class="answer-container">
             <div class="option-container">
-                <input type="radio" name="romance" id="no" value="no" required>
+                <input type="radio" name="romance" id="no" value="no">
                 <label for="no">I prefer my characters to dwell in loneliness</label>
             </div>
             <div class="option-container">
-                <input type="radio" name="romance" id="some" value="some" required>
+                <input type="radio" name="romance" id="some" value="some">
                 <label for="some">Just don't let it detract from the story</label>
             </div>
             <div class="option-container">
-                <input type="radio" name="romance" id="yes" value="yes" required>
+                <input type="radio" name="romance" id="yes" value="yes">
                 <label for="yes">Give me some of that sweet sweet love</label>
             </div>
             <div class="option-container">
-                <input type="radio" name="romance" id="all" value="all" required>  
+                <input type="radio" name="romance" id="all" value="all">  
                 <label for="all">Give me "The Notebook", but in a comic</label>
             </div>
             </div>
+            <a href="#question3" class="next right">
+                <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                x="0px" y="0px" viewBox="0 0 48 60" style="enable-background:new 0 0 48 60;" xml:space="preserve">
+                    <path d="M38.7,22.2h-5.5c-0.8,0-1.5-0.5-1.7-1.3c-2-6.2-7.9-18.3-22.8-20.5C8,0.4,7.5,1.2,8,1.8c2.5,3.3,8.3,11.4,8.5,18.6
+                    c0,1-0.8,1.8-1.8,1.8H10c-1.1,0-1.8,0.9-1.3,1.7L23,46.8c0.6,1,2.1,1,2.7,0l14.4-22.9C40.5,23.1,39.8,22.2,38.7,22.2z"/>
+                </svg>
+            </a>
             </div>
         </div>
     </section>
-    <section>
+    <section id = "question3">
         <div class="wrapper">
-        <div class="question question3">
+        <div class="question">
             <h3 class = "heading-3">How do you want to feel?</h3>
             <div class="answer-container">
             <div class="option-container">
-                <input type="radio" name="mood" id="cute" value="cute" required>
+                <input type="radio" name="mood" id="cute" value="cute">
                 <label for="cute">Like I'm being wrapped in a warm, fuzzy blanket</label>
             </div>
             <div class="option-container">
-                <input type="radio" name="mood" id="funny" value="funny" required>
+                <input type="radio" name="mood" id="funny" value="funny">
                 <label for="funny">I want to at least be able to tweet that I lol'd, maybe even rolled on the floor laughing</label>
             </div>
             <div class="option-container">
-                <input type="radio" name="mood" id="drama" value="drama" required>
+                <input type="radio" name="mood" id="drama" value="drama">
                 <label for="drama">Serious reading time is serious</label>
             </div>
             <div class="option-container">
-                <input type="radio" name="mood" id="dark" value="drama" required>
+                <input type="radio" name="mood" id="dark" value="drama">
                 <label for="dark">Like the darkness is encroching on my soul</label>
             </div>
             </div>
+            <a href="#question4" class="next left">
+                <svg class="left" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                    x="0px" y="0px" viewBox="0 0 48 60" style="enable-background:new 0 0 48 60;" xml:space="preserve">
+                    <defs>
+                        <filter id ="shadow">
+                            <feDropShadow dx="3" dy="3" stdDeviation="0" flood-color="#2a3139"/>
+                        </filter>
+                    </defs>
+                    <path d="M38.7,22.2h-5.5c-0.8,0-1.5-0.5-1.7-1.3c-2-6.2-7.9-18.3-22.8-20.5C8,0.4,7.5,1.2,8,1.8c2.5,3.3,8.3,11.4,8.5,18.6
+                                                c0,1-0.8,1.8-1.8,1.8H10c-1.1,0-1.8,0.9-1.3,1.7L23,46.8c0.6,1,2.1,1,2.7,0l14.4-22.9C40.5,23.1,39.8,22.2,38.7,22.2z"
+                    />
+                    </svg>
+                </a>
         </div>
         </div>
 </section>
-<section class="dark">
+<section class="dark" id = "question4">
     <div class="wrapper">
         <div class="question question4">
             <h3 class = "heading-3">Which emoji best describes you?</h3>
             <div class="answer-container">
             <div class="option-container">
-                <input type="radio" name="emoji" id="spaceship" value="spaceship" required>
+                <input type="radio" name="emoji" id="spaceship" value="spaceship">
                 <label for="spaceship">🚀</label>
             </div>
             <div class="option-container">
-                <input type="radio" name="emoji" id="guitar" value="guitar" required>
+                <input type="radio" name="emoji" id="guitar" value="guitar">
                 <label for="guitar">🎸</label>
             </div>
             <div class="option-container">
-                <input type="radio" name="emoji" id="rainbow" value="rainbow" required>
+                <input type="radio" name="emoji" id="rainbow" value="rainbow">
                 <label for="rainbow">🏳️‍🌈</label>
             </div>
             <div class="option-container">
-                <input type="radio" name="emoji" id="sword" value="sword" required>
+                <input type="radio" name="emoji" id="sword" value="sword">
                 <label for="sword">⚔️</label>
             </div>
             </div>
+            <a href="#question5" class="next right">
+            <svg class="right" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                x="0px" y="0px" viewBox="0 0 48 60" style="enable-background:new 0 0 48 60;" xml:space="preserve">
+                <path d="M38.7,22.2h-5.5c-0.8,0-1.5-0.5-1.7-1.3c-2-6.2-7.9-18.3-22.8-20.5C8,0.4,7.5,1.2,8,1.8c2.5,3.3,8.3,11.4,8.5,18.6
+                            	c0,1-0.8,1.8-1.8,1.8H10c-1.1,0-1.8,0.9-1.3,1.7L23,46.8c0.6,1,2.1,1,2.7,0l14.4-22.9C40.5,23.1,39.8,22.2,38.7,22.2z"
+                />
+            </svg>
+            </a>
         </div>
         </div>
 </section>
-<section>
+<section id = "question5">
     <div class="wrapper">
         <div class="question question5">
             <h3 class = "heading-3">What is your reading drink of choice?</h3>
             <div class="answer-container">
             <div class="option-container">
-                <input type="radio" name="drink" id="wine" value="wine" required>
+                <input type="radio" name="drink" id="wine" value="wine">
                 <label for="wine">A glass of fine wine</label>
             </div>
             <div class="option-container">
-                <input type="radio" name="drink" id="beer" value="beer" required>
+                <input type="radio" name="drink" id="beer" value="beer">
                 <label for="beer">A flagon of ale</label>
             </div>
             <div class="option-container">
-                <input type="radio" name="drink" id="soda" value="soda" required>
+                <input type="radio" name="drink" id="soda" value="soda">
                 <label for="soda">A cool bubbly soda</label>
             </div>
             <div class="option-container">
-                <input type="radio" name="drink" id="coffee" value="coffee" required>
+                <input type="radio" name="drink" id="coffee" value="coffee">
                 <label for="coffee">Caffeinate me!</label>
             </div>
             </div>
+            <a href="#question6" class= "next left">
+                <svg class="left" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                x="0px" y="0px" viewBox="0 0 48 60" style="enable-background:new 0 0 48 60;" xml:space="preserve">
+                <path d="M38.7,22.2h-5.5c-0.8,0-1.5-0.5-1.7-1.3c-2-6.2-7.9-18.3-22.8-20.5C8,0.4,7.5,1.2,8,1.8c2.5,3.3,8.3,11.4,8.5,18.6
+                c0,1-0.8,1.8-1.8,1.8H10c-1.1,0-1.8,0.9-1.3,1.7L23,46.8c0.6,1,2.1,1,2.7,0l14.4-22.9C40.5,23.1,39.8,22.2,38.7,22.2z"/>
+                </svg>
+            </a>
         </div>
         </div>
     </section>
-    <section class = "dark">
+    <section class = "dark" id="question6">
         <div class="wrapper">
         <div class="question question6">
-            <h3 class = "heading-3">How do you feel about raucous humour and/or adult content?</h3>
+            <h3 class = "heading-3">How do you feel about adult content?</h3>
             <div class="answer-container">
             <div class="option-container">
-                <input type="radio" name="rating" id="adult" value="adult" required>
+                <input type="radio" name="rating" id="adult" value="adult">
                 <label for="adult">Who are we kidding, I'm a walking inappropriate joke</label>
             </div>
             <div class="option-container">
-                <input type="radio" name="rating" id="teen" value="teen" required>
-                <label for="teen">Let's keep it a little classy</label>
+                <input type="radio" name="rating" id="teen" value="teen">
+                <label for="teen">I like to keep it a little classy</label>
             </div>
             <div class="option-container">
-                <input type="radio" name="rating" id="allAges" value="allAges" required>
-                <label for="allAges">Make it squeaky clean</label>
+                <input type="radio" name="rating" id="allAges" value="allAges">
+                <label for="allAges">I'm squeaky clean</label>
             </div>  
             </div>
+            <input class = "results-button button" type="submit" value="Get my results">
         </div>
-        <input type="submit" value="Get my results">
         </section>
         </div>
     </form>
-    <div class="result-container"></div>
+    <section class="result-container" id="result">
+        <div class="wrapper">
+            <div class="result-container__inner">
+                <img class="image"></img>
+                <div class="text-container">
+                </div>
+            </div>
+        </div>
+    </section>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.9.0/underscore.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-smooth-scroll/2.2.0/jquery.smooth-scroll.min.js"></script>
     <script src="scripts/script.js"></script>
     </div> <!-- /.wrapper -->
 </body>
 </html>
 
-<!-- Created by Deemak Daksina -->
+<!-- Created by Creative Stall -->
