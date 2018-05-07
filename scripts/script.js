@@ -4,22 +4,25 @@
     //Animate down arrow on radio selection for desktop view
     //Create logic so that if options other than mature are selected, those options are filtered out, but the rest of the questions are chosen by best match
     //create more modular system of getting best comic result
+    //refactor into function blocks
+    //prompt user to make selections if inputs are not selected
+    //'more results' option that returns other close matches
 
-// Array of objects containing comic names and question categorizations
+// Array of objects containing comic names, info and question categorizations
 const comics = [
-    { title: 'Saga',
-      genre: 'sci-fi',
-      romance: 'yes',
-      mood: 'drama',
-      emoji: 'spaceship',
-      drink: 'beer',
-      rating: 'adult',
-      author: 'Brian K. Vaughn and Fiona Staples',
-      description: `Basically the gateway drug to comics, Saga is like Romeo and Juliet in space if they lived and it was narrated by their kid.`,
-      image: 'assets/Saga_vol1.png'
+    {   title: 'Saga',
+        genre: 'sci-fi',
+        romance: 'yes',
+        mood: 'drama',
+        emoji: 'spaceship',
+        drink: 'beer',
+        rating: 'adult',
+        author: 'Brian K. Vaughn and Fiona Staples',
+        description: `Basically the gateway drug to comics, Saga is like Romeo and Juliet in space if they lived and it was narrated by their kid.`,
+        image: 'assets/Saga_vol1.png'
     },
-    
-    {   title: 'Rat Queens',
+    { 
+        title: 'Rat Queens',
         genre: 'fantasy',
         romance: 'some',
         mood: 'funny',
@@ -42,71 +45,68 @@ const comics = [
         author: 'John Allison, Lissa Treiman, and Whitney Cogar',
         description: `Heartwarming and hilarious, "Giant Days" follows a goth, a homeschooler, and a pre-med student who end up roommates in their first year at university.`,
         image: 'assets/giant-days_vol1.jpg'
-      },
-
-      {
-          title: 'Monstress',
-          genre: 'fantasy',
-          romance: 'no',
-          mood: 'dark',
-          emoji: 'sword',
-          drink: 'wine',
-          rating: 'teen',
-          author: 'Marjorie Liu and Sana Takeda',
-          description: `This darkly beautiful fantasy follows a former slave on her quest to understand her past. But in order to do so, she must also grapple with a voracious monster that lives inside her.`,
-          image: 'assets/Monstress_Vol1.png'
-      },
-
-     {
-          title: 'Descender',
-          genre: 'sci-fi',
-          romance: 'no',
-          mood: 'drama',
-          emoji: 'spaceship',
-          drink: 'wine',
-          rating: 'adult',
-          author: 'Jeff Lemire and  Dustin Nguyen',
-          description: `An android boy wakes up after years of being powered down to find that everyone from his home has gone, and robots are being hunted down after a robot attack on humanity.`,
-          image: 'assets/Descender_vol1.png'
-      },
-
-     {
-          title: 'Backstagers',
-          genre: 'fantasy',
-          romance: 'yes',
-          mood: 'cute',
-          emoji: 'rainbow',
-          drink: 'soda',
-          rating: 'allAges',
-          author: 'James Tynion IV and Rian Syngh',
-          description: `Harry Potter meets high school theatre in this adorable fantasy. A new student joins his high school theatre's stage crew and discovers a whole magical backstage world.`,
-          image: 'assets/backstagers.jpg'
-      },
-      {
-          title: 'Joyride',
-          genre: 'epic',
-          romance: 'yes',
-          mood: 'cute',
-          emoji: 'rainbow',
-          drink: 'coffee',
-          rating: 'teen',
-          author: 'Jackson Lanzing, Collin Kelly, and Marcus To',
-          description: `Alien life has been discovered among the stars, but earth has blocked itself off with a giant shield. Uma Akkolyte thinks this is a drag, so she steals a spaceship and goes to explore the universe.`,
-          image: 'assets/joyride.jpg'
-      },
-      {
-          title: 'Bingo Love',
-          genre: 'fiction',
-          romance: 'all',
-          mood: 'cute',
-          emoji: 'rainbow',
-          drink: 'soda',
-          rating: 'allAges',
-          author: 'Tee Franklin, Jenn St-Onge, and Joy San',
-          description: `Two girls fall in love in the 1960s, but their families force them apart. Then, nearly 50 years later, they reunite in the same bingo hall where they first met.`,
-          image: 'assets/BingoLove.png'
-      },
-      {
+    },
+    {
+        title: 'Monstress',
+        genre: 'fantasy',
+        romance: 'no',
+        mood: 'dark',
+        emoji: 'sword',
+        drink: 'wine',
+        rating: 'teen',
+        author: 'Marjorie Liu and Sana Takeda',
+        description: `This darkly beautiful fantasy follows a former slave on her quest to understand her past. But in order to do so, she must also grapple with a voracious monster that lives inside her.`,
+        image: 'assets/Monstress_Vol1.png'
+    },
+    {
+        title: 'Descender',
+        genre: 'sci-fi',
+        romance: 'no',
+        mood: 'drama',
+        emoji: 'spaceship',
+        drink: 'wine',
+        rating: 'adult',
+        author: 'Jeff Lemire and  Dustin Nguyen',
+        description: `An android boy wakes up after years of being powered down to find that everyone from his home has gone, and robots are being hunted down after a robot attack on humanity.`,
+        image: 'assets/Descender_vol1.png'
+    },
+    {
+        title: 'Backstagers',
+        genre: 'fantasy',
+        romance: 'yes',
+        mood: 'cute',
+        emoji: 'rainbow',
+        drink: 'soda',
+        rating: 'allAges',
+        author: 'James Tynion IV and Rian Syngh',
+        description: `Harry Potter meets high school theatre in this adorable fantasy. A new student joins his high school theatre's stage crew and discovers a whole magical backstage world.`,
+        image: 'assets/backstagers.jpg'
+    },
+    {
+        title: 'Joyride',
+        genre: 'epic',
+        romance: 'yes',
+        mood: 'cute',
+        emoji: 'rainbow',
+        drink: 'coffee',
+        rating: 'teen',
+        author: 'Jackson Lanzing, Collin Kelly, and Marcus To',
+        description: `Alien life has been discovered among the stars, but earth has blocked itself off with a giant shield. Uma Akkolyte thinks this is a drag, so she steals a spaceship and goes to explore the universe.`,
+        image: 'assets/joyride.jpg'
+    },
+    {
+        title: 'Bingo Love',
+        genre: 'fiction',
+        romance: 'all',
+        mood: 'cute',
+        emoji: 'rainbow',
+        drink: 'soda',
+        rating: 'allAges',
+        author: 'Tee Franklin, Jenn St-Onge, and Joy San',
+        description: `Two girls fall in love in the 1960s, but their families force them apart. Then, nearly 50 years later, they reunite in the same bingo hall where they first met.`,
+        image: 'assets/BingoLove.png'
+    },
+    {
         title: 'Kim & Kim',
         genre: 'sci-fi',
         romance: 'no',
@@ -118,7 +118,6 @@ const comics = [
         description: 'A hard-rocking, high-flying space adventure about two bounty hunters just trying to make it in the universe!',
         image: 'assets/kimandkim_vol1.jpg'
       },
-
       {
         title: 'Lady Killer',
         genre: 'fiction',
@@ -131,7 +130,6 @@ const comics = [
         description: `A seemingly picture-perfect 50's housewife who is also an assassin? What could possibly go wrong?`,
         image: 'assets/lady-killer.jpg'
       },
-
       {
         title: 'Paper Girls',
         genre: 'sci-fi',
@@ -146,40 +144,41 @@ const comics = [
       }, 
 
       {
-          title: 'Mech Cadet Yu',
-          genre: 'sci-fi',
-          romance: 'no',
-          mood: 'drama',
-          emoji: 'spaceship',
-          drink: 'soda',
-          rating: 'allAges',
-          author: 'Grek Pak, Takeshi Miyazawa, Triona Farrell',
-          description: `Giant mechs help protect humanity from alien invasion, and students attend elite training in the hopes of getting a chance at being chosen to pilot one. But this year, one of the mechs doesn't choose a student, but a janitor's son instead.`,
-          image: 'assets/mech-cadet-yu_vol1.jpg'
+        title: 'Mech Cadet Yu',
+        genre: 'sci-fi',
+        romance: 'no',
+        mood: 'drama',
+        emoji: 'spaceship',
+        drink: 'soda',
+        rating: 'allAges',
+        author: 'Grek Pak, Takeshi Miyazawa, Triona Farrell',
+        description: `Giant mechs help protect humanity from alien invasion, and students attend elite training in the hopes of getting a chance at being chosen to pilot one. But this year, one of the mechs doesn't choose a student, but a janitor's son instead.`,
+        image: 'assets/mech-cadet-yu_vol1.jpg'
       },
       {
-          title: 'Heathen',
-          genre: 'epic',
-          romance: 'no',
-          mood: 'drama',
-          emoji: 'rainbow',
-          drink: 'beer',
-          rating: 'teen',
-          author: 'Natasha Alterici',
-          description: `A woman is forced to leave her village after it is discovered that she loves another woman. Instead of letting it get her down, she goes on an epic adventure to save a Valkyrie, smash the patriarchy, and take on Odin.`,
-          image: `assets/heathen.jpg`
+        title: 'Heathen',
+        genre: 'epic',
+        romance: 'no',
+        mood: 'drama',
+        emoji: 'rainbow',
+        drink: 'beer',
+        rating: 'teen',
+        author: 'Natasha Alterici',
+        description: `A woman is forced to leave her village after it is discovered that she loves another woman. Instead of letting it get her down, she goes on an epic adventure to save a Valkyrie, smash the patriarchy, and take on Odin.`,
+        image: `assets/heathen.jpg`
       }      
 ];
 
 
 
-//get checked value from each question and assign it to variable
 $(function () {
+    // Hide results container until results generated
     $('.result-container').hide();
     $('footer').hide();
+
+    //Apply smooth scroll
     $('a').smoothScroll();
-
-
+    
     $('form').on('submit', function (e) {
         //prevent default action on form submit
         e.preventDefault();
@@ -257,29 +256,24 @@ $(function () {
         //Get number of times each title occurs
         const resultsShortlist = _.countBy(answerList, 'title');
         
-        //create array from objects shortlist & iterate over and get title with highest value
+        //create array from objects shortlist & sort by highest value
         const resultsArray = Object.entries(resultsShortlist);
 
             const sortResults = resultsArray.sort((arr1, arr2) => {
                 return arr1[1] < arr2[1];
             }); 
-
+        //Use first array position to get highest value
         const topScore = sortResults[0];
-
 
         //check to see if any other scores match this score, if so, push them to array
         const tieArray = [];
 
         const tie = sortResults.forEach(element => {
-            console.log(element);
             if (element[1] === topScore[1]) {
                 tieArray.push(element);
-                
-                // console.log(sortResults);
             }
             return tieArray;
         });
-        console.log(tieArray);
         
        
         // Get random title in case of tie
@@ -288,8 +282,7 @@ $(function () {
             return array[randomTitle];
         }
         
-           //run getRandomTitle function. If there is no tie, the function should just return the item in the array.
-
+        //run getRandomTitle function. If there is no tie, the function should just return the item in the array.
         let finalResult = getRandomTitle(tieArray);
 
         // Return the result as the comic object for appending data
@@ -301,29 +294,27 @@ $(function () {
                 return comic;
             }); 
 
-        console.log(answerObject);
-
         // display results page
         showResults();
 
         function showResults () {
             $('.result-container').fadeIn();
             $('footer').fadeIn();
-            scrollDown();
+            showResultsContent();
         }
 
         // Scroll to page on display
         function scrollDown () {
             $('html, body').animate({
                 scrollTop: $("#result").offset().top
-            }, 500);
-            showResultsContent();
+            }, 500);  
         }
 
         //Put results on page   
         function showResultsContent () {
             $('.image').attr('src', answerObject[0].image);
-            $('.text-container').html(`<h2>You should read ${answerObject[0].title}!</h2><h3>by ${answerObject[0].author}</h3><p>${answerObject[0].description}</p>`); 
+            $('.text-container').html(`<h2>You should read ${answerObject[0].title}!</h2><h3>by ${answerObject[0].author}</h3><p>${answerObject[0].description}</p>`);
+            scrollDown(); 
         }
         
 
@@ -350,8 +341,10 @@ $(function () {
 
             return t;
         }(document, "script", "twitter-wjs"));
-
+    
     }); //Form submit end
+    
+
 }); //Document Ready End
 
 
