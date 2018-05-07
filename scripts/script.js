@@ -176,6 +176,7 @@ const comics = [
 //get checked value from each question and assign it to variable
 $(function () {
     $('.result-container').hide();
+    $('footer').hide();
     $('a').smoothScroll();
 
 
@@ -307,6 +308,7 @@ $(function () {
 
         function showResults () {
             $('.result-container').fadeIn();
+            $('footer').fadeIn();
             scrollDown();
         }
 
@@ -324,8 +326,11 @@ $(function () {
             $('.text-container').html(`<h2>You should read ${answerObject[0].title}!</h2><h3>by ${answerObject[0].author}</h3><p>${answerObject[0].description}</p>`); 
         }
         
+
+        //Reset quiz to top
         $('.reset-button').on('click', function () {
-            window.location.reload(true);
+            location.reload();
+            $('html,body').scrollTop(0);
         });
 
         //Tweet sharing

@@ -1,16 +1,12 @@
 @import 'setup';
 @import 'utils';
+@import 'typography';
+@import 'header';
 
-html {
-    font-size: 62.5%;
-}
-
-body {
-    font-size: 1.6rem;
-    font-family: 'Nunito', sans-serif;
-    line-height: 1.6;
-    letter-spacing: 1.5px;
-    
+//GENERAL STYLES
+img {
+    display: block;
+    max-width: 100%;
 }
 
 section {
@@ -18,11 +14,102 @@ section {
     padding: 5vh 0;
 }
 
-img {
-    max-width: 100%;
-    display: block;
+svg { 
+    fill: $secondary;
+    justify-self: center;
+    width: 30%;  
+    stroke: $black;
+    stroke-width: 1px;
+    @media (max-width: 480px) {
+        display: none;
+    }
 }
 
+.wrapper {
+    align-items: center;
+    display: flex;
+    margin: 0 auto;
+    max-width: 1170px;
+    min-height: 90vh;
+    @media (max-width: 1210px) {
+        padding: 0 20px;    
+    }
+}
+
+// Components 
+.button {
+    border: 2px solid $black;
+    box-shadow: 3px 3px $black;
+    display: block;
+    padding: 20px;
+    transition: box-shadow 2s ease;
+}
+
+label {
+    background: #fff;
+    border: 2px solid $black;
+    box-shadow: 3px 3px $black;
+    display: block;
+    padding: 20px;
+    transition: background 0.5s linear;
+    &:hover,
+    &:focus {
+        background: #7acdbe;
+    }
+}
+
+
+input[type=radio] {
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    z-index: -1;
+    &:checked ~ label {
+        background: #7acdbe;
+        box-shadow: none;
+    }
+}
+
+// MAIN QUESTION STYLES
+.question {
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    min-height: 90vh;
+    width: 100%;
+    @media (max-width: 709px) {
+        grid-template-rows: repeat(3, 1fr);
+    }
+    @media (max-width: 480px) {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+}
+
+.answer-container {
+    background: $white;
+    border: 1px solid $black;
+    display: flex;
+    flex-direction: column;
+    grid-column: 2 / span 2;
+    grid-row: 2 / span 3;
+    justify-content: center;
+    @media (max-width: 709px) {
+        grid-row: 2 / span 2;
+    }
+    @media (max-width: 480px) {
+        margin: 20px 0;
+    }
+}
+
+.option-container {
+    margin: 15px;
+    position: relative;
+}
+
+// dark section
 .dark {
     background: $white;
     .heading-3 {
@@ -37,226 +124,7 @@ img {
     }    
 }
 
-.wrapper {
-    max-width: 1170px;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    min-height: 100vh;
-    @media (max-width: 1210px) {
-        padding: 0 20px;    
-    }
-}
-
-.main-header {
-    // min-height: 100vh; 
-    // display: flex;
-    // justify-content: center;
-    // align-items: center;
-    background: url(../assets/BubbleWrap_03.svg);
-    background-size: cover;
-    background-repeat: no-repeat;   
-    text-shadow: 1px 1px 2px $black;
-    &__container {
-        color: $black;
-        background: rgba(250, 250, 250, 0.9);
-        width: 100%;
-        min-height: 80vh;
-        margin: 0 auto;
-        display: flex;
-        flex-direction: column;
-        position: relative;
-        align-items: center;
-        justify-content: center;
-        box-shadow: 3px 3px 5px $black;
-    }
-    &__button {
-        background: $secondary;
-        color: $white;
-        text-decoration: none;
-        text-shadow: 1px 1px 1px $black;
-       &:hover,
-       &:focus {
-           background: darken($secondary, 10);
-       }
-    }
-}
-
-
-.heading-1 {
-    font-family: 'Lato', sans-serif;
-    font-size: 7rem;
-    color: $black;
-    line-height: 1;
-    margin: 0;
-    text-align: center;
-     @media (max-width: 480px) {
-        font-size: 5rem;
-    }
-}
-
-.heading-3 {
-    background: $primary;
-    border: 1px solid $black;
-    font-family: 'Lato', sans-serif;
-    letter-spacing: 2px;
-    margin: 0;
-    font-size: 3rem;
-    grid-column: 1 / span 2;
-    grid-row: 1 / span 2;
-    padding: 50px 30px;
-    @media (max-width: 709px) {
-        grid-row: 1;
-        text-align: center;          
-    }
-}
-
-.answer-container {
-    border: 1px solid $black;
-    grid-column: 2 / span 2;
-    grid-row: 2 / span 3;
-    background: $white;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    @media (max-width: 709px) {
-        grid-row: 2 / span 2;
-    }
-    @media (max-width: 480px) {
-        margin: 20px 0;
-    }
-}
-
-.button {
-    display: block;
-    padding: 20px;
-    border: 2px solid $black;
-    box-shadow: 3px 3px $black;
-    transition: box-shadow 2s ease;
-}
-
-label {
-    display: block;
-    padding: 20px;
-    background: #fff;
-    border: 2px solid $black;
-    box-shadow: 3px 3px $black;
-    transition: background 0.5s linear;
-    &:hover,
-    &:focus {
-        background: #7acdbe;
-    }
-}
-
-
-input[type=radio] {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    z-index: -1;
-    &:checked ~ label {
-        box-shadow: none;
-        background: #7acdbe;
-    }
-}
-
-.question {
-    display: grid;
-    min-height: 90vh;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 20px;
-    grid-template-rows: repeat(4, 1fr);
-    width: 100%;
-    @media (max-width: 709px) {
-        grid-template-rows: repeat(3, 1fr);
-    }
-    @media (max-width: 480px) {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-    }
-}
-
-.hidden {
-    display: none;
-}
-
-.option-container {
-    // display: flex;
-  
-    margin: 15px;
-    position: relative;
-}
-
-.result-container {
-    @extend .main-header;
-    min-height: 100vh;
-    display: flex;
-    .wrapper {
-        min-height: initial;
-    }
-    &__inner {
-        @extend .main-header__container;
-        flex-basis: 900px;
-        display: block;
-    }
-    .data-container {
-        display: flex;
-        flex-direction: row;
-        @media (max-width: 709px) {
-        flex-direction: column;
-        }
-    }
-    .image-container,
-    .text-container {
-        padding: 40px;
-        flex-basis: 400px;
-        @media (max-width: 709px) {
-            flex-basis: auto;
-            padding: 20px 40px 0 40px;
-            h2 {
-                margin: 0;
-            }
-        img {
-           @media (max-width: 709px) {
-               margin: 20px auto;
-           }
-        }
-        }
-    }
-    .image-container {
-        flex-shrink: 0.5;
-        @media (max-width: 709px) {
-        // width: 60%;
-        }
-    }
-}
-
-
-.results-button {
-    @extend .main-header__button;
-    grid-row: 4;
-    justify-self: center;
-    align-self: end;
-    @media (max-width: 709px) {
-        grid-row: 3;
-    }
-     @media (max-width: 480px) {
-        align-self: center;
-    }
-}
-
-svg { 
-    fill: $secondary;
-    justify-self: center;
-    width: 30%;  
-    stroke: $black;
-    stroke-width: 1px;
-    @media (max-width: 480px) {
-        display: none;
-    }
-}
-
+//Form navigation elements
 .next {
     display: flex;
     grid-row: 4;
@@ -281,6 +149,62 @@ svg {
     grid-column: 3;
 }
 
+
+//Result section styles
+.result-container {
+    @extend .main-header;
+    min-height: 100vh;
+    display: flex;
+    .wrapper {
+        height: initial;
+    }
+    &__inner {
+        @extend .main-header__container;
+        min-height: initial;
+        flex-basis: 900px;
+        display: block;
+    }
+    .data-container {
+        display: flex;
+        flex-direction: row;
+        @media (max-width: 709px) {
+            flex-direction: column;
+        }
+    }
+    .image-container,
+    .text-container {
+        flex-basis: 400px;
+        padding: 40px;
+        @media (max-width: 709px) {
+            flex-basis: auto;
+            padding: 20px 40px 0 40px;
+            h2 {
+                margin: 0;
+            }
+            img {
+               margin: 20px auto;
+            }
+        }
+    }
+    .image-container {
+        flex-shrink: 0.5;
+    }
+}
+
+
+.results-button {
+    @extend .main-header__button;
+    grid-row: 4;
+    justify-self: center;
+    align-self: end;
+    @media (max-width: 709px) {
+        grid-row: 3;
+    }
+     @media (max-width: 480px) {
+        align-self: center;
+    }
+}
+
 .reset-button {
     @extend .main-header__button;
     margin: 0 auto;
@@ -291,4 +215,20 @@ svg {
 
 .tweet {
     text-align: center;
+    margin: 20px auto;
+}
+
+
+//Footer styles
+footer {
+    text-align: center;
+    font-size: 1.2rem;
+    padding: 10px 0;
+    a {
+        color: $primary;
+        text-decoration: none;
+        &:hover {
+            color: darken($primary, 10);
+        }
+    }
 }

@@ -1,0 +1,33 @@
+
+.main-header {
+    background: url(../assets/BubbleWrap_03.svg);
+    background-repeat: no-repeat;   
+    background-size: cover;
+    text-shadow: 1px 1px 2px $black;
+    .wrapper {
+        height: 100vh;
+    }
+    &__container {
+        align-items: center;
+        box-shadow: 3px 3px 5px $black;
+        color: $black;
+        background: rgba(250, 250, 250, 0.9);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin: 0 auto;
+        min-height: 80vh;
+        position: relative;
+        width: 100%;
+    }
+    &__button {
+        background: $secondary;
+        color: $white;
+        text-decoration: none;
+        text-shadow: 1px 1px 1px $black;
+       &:hover,
+       &:focus {
+           background: darken($secondary, 10);
+       }
+    }
+}
